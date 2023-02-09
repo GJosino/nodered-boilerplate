@@ -1,0 +1,122 @@
+[
+    {
+        "id": "699999a399c92a4e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e49487a758fa9e00",
+        "type": "inject",
+        "z": "699999a399c92a4e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "818b701a8d985693",
+        "type": "debug",
+        "z": "699999a399c92a4e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e28f1ee620b855c7",
+        "type": "http in",
+        "z": "699999a399c92a4e",
+        "name": "",
+        "url": "/carro",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "2d642e2251dbfe14",
+                "818b701a8d985693"
+            ]
+        ]
+    },
+    {
+        "id": "dce38735595620a4",
+        "type": "http request",
+        "z": "699999a399c92a4e",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 310,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb27c514542a7231",
+        "type": "http response",
+        "z": "699999a399c92a4e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2d642e2251dbfe14",
+        "type": "template",
+        "z": "699999a399c92a4e",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Carrão",
+        "output": "str",
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "cb27c514542a7231",
+                "818b701a8d985693"
+            ]
+        ]
+    }
+]
